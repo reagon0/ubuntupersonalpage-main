@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main_app/BookDetails.css' %}">
+
+
+<main class="book-detail">
+      <section class="book-info">
+
+        <header class="book-header">
+          <h1 class="book-title">{{ book.title }}</h1>
+          <h2 class="book-author"> By: <a href="{% url 'main_app:author-detail' %}"> {{ book.author }}</a></h2>
+          {% if book.coverimage %} 
+            <img class="book-cover-image" src="{{book.coverimage.url}}" alt="Image Not Found"> 
+          {% endif %}   
+        </header>
+
+            <div>
+              <dl class="book-details-flex">
+                <dt>Date Published:</dt>
+                <dd>{{ book.date_published }}</dd>
+                <dt>ISBN:</dt>
+                <dd>{{ book.isbn }}</dd>
+                <dt>Pages:</dt>
+                <dd>{{ book.pages }}</dd>
+                <dt>Genre:</dt>
+                <dd>{{ book.genere }}</dd>
+              </dl>
+            </div>
+ 
+            <div class="book-summary">
+              <h3>Book Summary:</h3>
+              <p>{{ book.summary }}</p>
+            </div>
+
+            <div class="book-thoughts">
+              <h4>My Thoughts:</h4>
+              <dl>
+                <dt><small>Read Date: {{ book.date_read }}</small></dt>
+                <dd><p>{{ book.my_thoughts }}</p></dd>
+              </dl>
+            </div>
+            
+      </section>
+
+    <a class="back-link" href="{% url 'main_app:home' %}" >Back</a> 
+</main>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main_app/AuthorList.css' %}">
+
+<main>
+  <section class="author-section">
+    <header class="author-header">
+      <h1 class="author-header-title">List of Authors</h1>
+    </header>
+    <div class="author-list-container">
+      <ul class="author-list">
+        {% for author in object_list %}
+
+
+        <li class="author-list-item">
+
+          <div class="author-title-flex">
+            <a href="{% url 'main_app:author-detail' author.pk %}" class="author-list-link">{{ author.name }}</a>
+            {% if author.image %}
+               <img class="author-list-cover" src="{{ author.image.url}}" alt="Image Not Found">
+            {% endif %}
+          </div>
+          
+          <p class="author-biography">{{ author.biography }}</p>
+          
+        </li>
+
+
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    
+  </section>
+</main>
+  
+{% endblock %}
+

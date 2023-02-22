@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<link rel="stylesheet" href="{% static 'main_app/BookList.css' %}">
+
+<main>
+    <section class="book-list">
+      <header class="header">
+        <h1 class="header-title">Welcome to my Online Book Shelf!</h1>
+        <p class="header-desc">I like organization and I like my bookshelf. However, I can't put my audiobooks anywhere physically, and I don't feel obligated to buy a hard copy every time I finish an audiobook. Hence, the online bookshelf. Here I can store all of my book titles, reflections, and anything else I may want.</p>
+      </header>
+      <div class="book-list-container">
+        <ul class="book-list-items">
+            {% for book in object_list %}
+                <li class="book-list-item">
+                    <a class="book-list-link" href="{% url 'main_app:book-detail' book.pk %}">{{ book.title }}</a> - {{ book.author }}<br>
+                </li>
+                <li>
+                    {% if book.coverimage %} 
+                    <img class="book-list-cover" src="{{book.coverimage.url}}" class="img-fluid" alt="Image Not Found"> 
+                    {% endif %}
+                </li>
+                <li>
+                    <p class="book-list-summary">{{ book.summary }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+      </div>
+   
+
+
+      <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+      </div>
+    </section>
+</main>
+{% endblock %}

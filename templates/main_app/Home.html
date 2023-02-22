@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<link rel="stylesheet" href="{% static 'main_app/Home.css' %}">
+
+<main>
+    <header class="book-header-flex">
+        <h1 class="header-title">Welcome to my Online Book Shelf!</h1>
+        
+    </header>
+    <section class="book-list-container">
+        <p class="header-desc">I like organization and I like my bookshelf. However, I can't put my audiobooks anywhere physically, and I don't feel obligated to buy a hard copy every time I finish an audiobook. Hence, the online bookshelf. Here I can store all of my book titles, reflections, and anything else I may want.</p>
+        <ul class="book-list-items">
+            {% for book in object_list %}
+                <li class="book-list-item">
+                    {% if book.coverimage %} 
+                    <a href="{% url 'main_app:book-detail' book.pk %}"><img class="book-list-cover" src="{{book.coverimage.url}}" class="img-fluid" alt="Image Not Found"> </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main> 
+
+{% endblock %}

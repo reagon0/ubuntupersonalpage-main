@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main_app/AuthorDetails.css' %}">
+
+
+
+<main class="author-profile">
+  <header class="author-header">
+    <h1 class="author-name">{{ author.name }}</h1>
+    {% if author.image %} 
+    <img class="author-image" src="{{ author.image.url }}" alt="Image Not Found"> 
+    {% endif %}
+  </header>
+  <section class="author-info">
+    <div class="author-details">
+      <p class="author-birth-date">Birth Date: {{ author.born }}</p>
+      {% if author.death %}
+      <p class="author-death-date">Death Date: {{ author.death }}</p>
+      {% endif %}
+    </div>
+    <p class="author-biography">Biography: {{ author.biography }}</p>
+  </section>
+  <a class="back-link" href="{% url 'main_app:book-list' %}">Back</a>
+</main>
+
+
+
+{% endblock %}
