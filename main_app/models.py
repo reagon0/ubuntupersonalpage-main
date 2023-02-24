@@ -16,7 +16,7 @@ class Author(models.Model):
         return self.name
 
     def get_absolute_url(self):
-          return reverse('author-detail', args=[str(self.id)])
+          return f'/author/{self.id}/' #('author-detail', args=[str(self.id)])
 
 class Book(models.Model):
     title = models.CharField(max_length=255)

@@ -10,7 +10,7 @@
 
         <header class="book-header">
           <h1 class="book-title">{{ book.title }}</h1>
-          <h2 class="book-author"> By: <a href="{% url 'main_app:author-detail' %}"> {{ book.author }}</a></h2>
+          <h2 class="book-author"> By: <a href="{{ book.author.get_absolute_url }}"> {{ book.author }}</a></h2>
           {% if book.coverimage %} 
             <img class="book-cover-image" src="{{book.coverimage.url}}" alt="Image Not Found"> 
           {% endif %}   
