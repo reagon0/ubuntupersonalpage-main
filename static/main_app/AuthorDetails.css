@@ -1,0 +1,59 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+main {
+  width: 80%;
+  margin: 10% auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #333;
+}
+
+.author-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.author-header h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.author-image {
+  width: 200px;
+  height: 300px;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.author-details {
+  font-size: 18px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+
+.author-biography {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+a.back-link {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+a.back-link:hover {
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+}
