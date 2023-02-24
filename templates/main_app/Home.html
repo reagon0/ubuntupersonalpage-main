@@ -1,11 +1,18 @@
 
 {% extends 'base.html' %}
 {% load static %}
+
+
+{% block header %} 
+    <link rel="stylesheet" href="{% static 'main_app/Home.css' %}">
+{% endblock %}
+
+
 {% block content %}
 
 
 
-<link rel="stylesheet" href="{% static 'main_app/Home.css' %}">
+
 
 <main>
     <header class="book-header-flex">
