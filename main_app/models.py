@@ -5,8 +5,8 @@ from django.urls import reverse  # Used to generate URLs by reversing the URL pa
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
-    bornyear = models.IntegerField(null=True, blank=True)
-    deathyear = models.IntegerField(null=True, blank=True)
+    born_year = models.IntegerField(null=True, blank=True)
+    death_year = models.IntegerField(null=True, blank=True)
     biography = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='images', null=True, blank=True)
     
@@ -25,8 +25,8 @@ class Book(models.Model):
     pages = models.PositiveIntegerField(null=True, blank=True)
     genre = models.CharField(max_length=50, blank=True, null=True)
     rating = models.PositiveSmallIntegerField(null=True, blank=True)
-    date_published = models.IntegerField(null=True, blank=True)
-    date_read = models.IntegerField(null=True, blank=True)
+    year_published = models.IntegerField(null=True, blank=True)
+    year_read = models.IntegerField(null=True, blank=True)
     summary = models.TextField(max_length=5000, help_text="Enter a brief description of the book", blank=True)
     my_thoughts = models.TextField(max_length=10000, blank=True, default="")
     coverimage = models.ImageField(null=True, upload_to='images', blank=True)
