@@ -1,8 +1,12 @@
+
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
 
-<link rel="stylesheet" href="{% static 'main_app/AuthorList.css' %}">
+
+{% block header %} 
+    <link rel="stylesheet" href="{% static 'main_app/AuthorList.css' %}">
+{% endblock %}
+
 
 <main>
   <section class="author-section">
