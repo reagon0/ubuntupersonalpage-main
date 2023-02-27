@@ -128,6 +128,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = (BASE_DIR / 'local_static',)
 
 try:
-    from .local_settings import *
+    from .prod_settings import *
 except:
     pass
